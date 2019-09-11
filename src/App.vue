@@ -1,29 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app id="app">
+    <navigation />
+    <componentas />
+   
+    <v-content>
+      
+        <router-view></router-view>
+     
+    </v-content>
+ 
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+
+  import navigation from './components/navigation';
+  import componentas from './components/componentas.vue';
+
+  export default {
+    components: {
+    navigation,
+    componentas
+  },
+    name: 'App',
+    props: {
+      source: String,
+    },
+    data: () => ({
+      drawer: null,
+    }),
   }
+</script>
+
+<style lang="scss">
+//Strange, cause here it works! 
+main {
+ background-image: url('./assets/medis.jpg');
+ background-size: cover;
 }
+  
 </style>
